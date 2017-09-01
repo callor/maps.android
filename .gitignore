@@ -8,3 +8,8 @@ gradle.properties
 ### Intellij ###
 *.iml
 .idea/
+
+
+
+# naver smoke CLIENT_ID
+NMapViewer.java

@@ -60,12 +60,14 @@ import com.nhn.android.mapviewer.overlay.NMapPathDataOverlay;
  * 
  * @author kyjkim
  */
-public class NMapViewer extends NMapActivity {
+public class NMapViewer_sample extends NMapActivity {
 	private static final String LOG_TAG = "NMapViewer";
 	private static final boolean DEBUG = false;
 
 	// set your Client ID which is registered for NMapViewer library.
-	private static final String CLIENT_ID = "";
+	// 본인의 naver map  CLIENT_ID를 입력한후
+	// 파일을 NMapViewer.java로 변경한 후 빌드 하시오
+	private static final String CLIENT_ID = "너의 네이버 키";
 
 	private MapContainerView mMapContainerView;
 
@@ -222,7 +224,7 @@ public class NMapViewer extends NMapActivity {
 			} else {
 				boolean isMyLocationEnabled = mMapLocationManager.enableMyLocation(true);
 				if (!isMyLocationEnabled) {
-					Toast.makeText(NMapViewer.this, "Please enable a My Location source in system settings",
+					Toast.makeText(NMapViewer_sample.this, "Please enable a My Location source in system settings",
 						Toast.LENGTH_LONG).show();
 
 					Intent goToSettings = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
@@ -396,7 +398,7 @@ public class NMapViewer extends NMapActivity {
 			if (errInfo != null) {
 				Log.e(LOG_TAG, "Failed to findPlacemarkAtLocation: error=" + errInfo.toString());
 
-				Toast.makeText(NMapViewer.this, errInfo.toString(), Toast.LENGTH_LONG).show();
+				Toast.makeText(NMapViewer_sample.this, errInfo.toString(), Toast.LENGTH_LONG).show();
 				return;
 			}
 
@@ -436,13 +438,13 @@ public class NMapViewer extends NMapActivity {
 			//			};
 			//			runnable.run();	
 
-			Toast.makeText(NMapViewer.this, "Your current location is temporarily unavailable.", Toast.LENGTH_LONG).show();
+			Toast.makeText(NMapViewer_sample.this, "Your current location is temporarily unavailable.", Toast.LENGTH_LONG).show();
 		}
 
 		@Override
 		public void onLocationUnavailableArea(NMapLocationManager locationManager, NGeoPoint myLocation) {
 
-			Toast.makeText(NMapViewer.this, "Your current location is unavailable area.", Toast.LENGTH_LONG).show();
+			Toast.makeText(NMapViewer_sample.this, "Your current location is unavailable area.", Toast.LENGTH_LONG).show();
 
 			stopMyLocation();
 		}
@@ -462,7 +464,7 @@ public class NMapViewer extends NMapActivity {
 			} else { // fail
 				Log.e(LOG_TAG, "onFailedToInitializeWithError: " + errorInfo.toString());
 
-				Toast.makeText(NMapViewer.this, errorInfo.toString(), Toast.LENGTH_LONG).show();
+				Toast.makeText(NMapViewer_sample.this, errorInfo.toString(), Toast.LENGTH_LONG).show();
 			}
 		}
 
@@ -554,7 +556,7 @@ public class NMapViewer extends NMapActivity {
 			}
 
 			// [[TEMP]] handle a click event of the callout
-			Toast.makeText(NMapViewer.this, "onCalloutClick: " + item.getTitle(), Toast.LENGTH_LONG).show();
+			Toast.makeText(NMapViewer_sample.this, "onCalloutClick: " + item.getTitle(), Toast.LENGTH_LONG).show();
 		}
 
 		@Override
@@ -617,7 +619,7 @@ public class NMapViewer extends NMapActivity {
 
 					if (countOfOverlappedItems > 1) {
 						String text = countOfOverlappedItems + " overlapped items for " + overlayItem.getTitle();
-						Toast.makeText(NMapViewer.this, text, Toast.LENGTH_LONG).show();
+						Toast.makeText(NMapViewer_sample.this, text, Toast.LENGTH_LONG).show();
 						return null;
 					}
 				}
@@ -651,7 +653,7 @@ public class NMapViewer extends NMapActivity {
 				// [TEST] 말풍선 오버레이를 뷰로 설정함
 				String title = overlayItem.getTitle();
 				if (title != null && title.length() > 5) {
-					return new NMapCalloutCustomOverlayView(NMapViewer.this, itemOverlay, overlayItem, itemBounds);
+					return new NMapCalloutCustomOverlayView(NMapViewer_sample.this, itemOverlay, overlayItem, itemBounds);
 				}
 			}
 
