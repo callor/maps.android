@@ -17,17 +17,3 @@ dependencies {
    compile 'com.naver.maps.open:naver-map-api:2.1.2@aar'
 }
 ```
-
-# 2017-09-01
-## builder 및 sdk update
-
-```
-
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
-    defaultConfig {
-
-        minSdkVersion 16
-        targetSdkVersion 26
-
-```
